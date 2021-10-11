@@ -30,11 +30,12 @@ const HomeScreen = (props) => {
   const history = useHistory();
 
   const getWeatherHandler = () => {
+    const API_KEY = process.env.REACT_APP_API_KEY;
     if (city) {
       axios
         .get(
           `http://api.openweathermap.org/data/2.5/weather?q=
-          ${city}&appid=baa1ba693c4e8b6f6749bc29c8d14627`
+          ${city}&appid=${API_KEY}`
         )
         .then((res) => {
           const K = res.data.main.temp;
